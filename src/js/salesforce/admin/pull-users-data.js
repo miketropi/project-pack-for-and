@@ -44,7 +44,7 @@
           'opacity': 1,
         })
         .text(initBtnText);
-      
+       
       /**
        * Error
        */
