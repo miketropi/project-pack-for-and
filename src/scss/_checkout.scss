@@ -1,6 +1,7 @@
 .woocommerce-checkout {
 
   a {
+    width: fit-content;
     color: var(--accent-color);
 
     &:hover {
@@ -11,6 +12,21 @@
 
   form label {
     opacity: 1;
+  }
+
+  .woocommerce-form-coupon-toggle {
+
+    .showcoupon {
+      margin-top: 6px;
+      display: flex;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+    .showcoupon::after {
+      content: "\f347";
+      font-family: dashicons;
+      font-size: 1.125rem;
+    }
   }
 }
 
@@ -150,7 +166,7 @@ form.woocommerce-checkout {
   input[name=coupon_code] {
     height: 40px;
     padding: 0 1rem;
-    border: solid 1px #c5c5c5;
+    border: solid 1px #777;
     border-radius: 40px;
     font-size: 1rem;
 

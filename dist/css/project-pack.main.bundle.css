@@ -3,6 +3,9 @@
   --site-container-spacing: 20px;
   --accent-color: #6e3685;
   --accent-color2: #A22F2C;
+  --primary-font-normal: "Avenir-Roman";
+  --primary-font-medium: "Avenir-Medium";
+  --primary-font-heavy: "Avenir-Heavy";
 }
 
 .site-container {
@@ -65,7 +68,7 @@
 }
 .faqs-content .faqs-nav a {
   color: var(--accent-color);
-  font-weight: bold;
+  font-family: var(--primary-font-heavy);
   text-decoration: underline;
 }
 .faqs-content .faqs-nav ul {
@@ -100,7 +103,7 @@
   justify-content: center;
   align-items: center;
   color: var(--accent-color);
-  font-weight: bold;
+  font-family: var(--primary-font-medium);
   font-size: 1rem;
 }
 .faqs-content .faqs-block__item-btt .__icon-btt {
@@ -399,7 +402,7 @@ form.tribe-tickets__tickets-form {
   background-color: white;
   color: black;
   padding: 0 15px 0 40px;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   height: 44px;
   border: solid 1px black;
@@ -430,6 +433,16 @@ form.tribe-tickets__tickets-form {
 .product-seach-filter-tag form .selectric-wrapper .button {
   height: 46px;
 }
+.product-seach-filter-tag form .selectric-wrapper .button:after {
+  border: 5px solid transparent;
+  border-top-color: #555;
+}
+.product-seach-filter-tag form .selectric-wrapper .selectric-items li {
+  color: #333;
+}
+.product-seach-filter-tag form .selectric-hover .selectric .button:after {
+  border-top-color: #555;
+}
 .product-seach-filter-tag form label {
   width: calc(50% - 10px);
   line-height: normal;
@@ -454,7 +467,7 @@ form.tribe-tickets__tickets-form {
   border: none;
   min-width: 200px;
   max-width: 100%;
-  font-weight: bold;
+  font-family: var(--primary-font-heavy);
 }
 .product-seach-filter-tag form .btn-submit:hover {
   opacity: 0.95;
@@ -772,6 +785,9 @@ table.shop_table a {
 table.shop_table a:hover {
   color: var(--accent-color);
   opacity: 0.7;
+}
+table.shop_table th {
+  font-family: var(--primary-font-heavy);
 }
 table.shop_table th, table.shop_table td {
   border-top: none !important;
@@ -1396,6 +1412,8 @@ form.pp-form-product-variations .pp-button-variantion-submit:hover {
 }
 
 .woocommerce-checkout a {
+  width: -moz-fit-content;
+  width: fit-content;
   color: var(--accent-color);
 }
 .woocommerce-checkout a:hover {
@@ -1404,6 +1422,17 @@ form.pp-form-product-variations .pp-button-variantion-submit:hover {
 }
 .woocommerce-checkout form label {
   opacity: 1;
+}
+.woocommerce-checkout .woocommerce-form-coupon-toggle .showcoupon {
+  margin-top: 6px;
+  display: flex;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+.woocommerce-checkout .woocommerce-form-coupon-toggle .showcoupon::after {
+  content: "\f347";
+  font-family: dashicons;
+  font-size: 1.125rem;
 }
 
 form.woocommerce-checkout {
@@ -1523,7 +1552,7 @@ form.woocommerce-checkout .pp-order-review .pp-order-review__inner {
 .checkout_coupon.woocommerce-form-coupon input[name=coupon_code] {
   height: 40px;
   padding: 0 1rem;
-  border: solid 1px #c5c5c5;
+  border: solid 1px #777;
   border-radius: 40px;
   font-size: 1rem;
 }

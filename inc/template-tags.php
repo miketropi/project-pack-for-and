@@ -16,7 +16,7 @@ function pp_product_search_filter_tag($active_slug = '') {
           tabindex="0" 
           type="text" 
           name="product_search" 
-          autocomplete="off" 
+          autocomplete="on" 
           placeholder="<?php _e('Enter a search term...', 'pp') ?>">
       </div>
       <div>

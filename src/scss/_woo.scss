@@ -41,7 +41,7 @@
       background-color: white;
       color: black;
       padding: 0 15px 0 40px;
-      font-weight: bold;
+      font-weight: normal;
       font-size: 16px;
       height: 44px;
       border: solid 1px black;
@@ -74,6 +74,25 @@
       .button {
         height: 46px;
       }
+
+      .button:after {
+        border: 5px solid transparent;
+        border-top-color: #555;
+      }
+
+      .selectric-items{
+        li {
+          color: #333;
+        }
+      }
+    }
+
+    .selectric-hover {
+      .selectric {
+        .button:after {
+          border-top-color: #555;
+        }
+      }
     }
     
     label {
@@ -101,7 +120,7 @@
       border: none;
       min-width: 200px;
       max-width: 100%;
-      font-weight: bold;
+      font-family: var(--primary-font-heavy);
 
       &:hover {
         opacity: .95;
@@ -478,6 +497,10 @@ table.shop_table {
       color: var(--accent-color);
       opacity: .7;
     }
+  }
+
+  th {
+    font-family: var(--primary-font-heavy);
   }
 
   th, td {
