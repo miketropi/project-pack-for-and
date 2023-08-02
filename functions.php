@@ -42,5 +42,6 @@
   /**
    * Salesforce
    */
+  require(PP_DIR . '/inc/salesforce-api.php');
   require(PP_DIR . '/inc/admin/users-sf-sync.php');
 } 
