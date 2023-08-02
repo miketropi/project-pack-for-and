@@ -1,0 +1,22 @@
+.pp-product-variable-custom-field {
+  width: 100%;
+  border: solid #eee;
+  border-width: 1px 0;
+  padding: 1em 0;
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  > * {
+    width: 48%;
+  }
+
+  input[type=text],
+  input[type=month],
+  input[type=date] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 2px;
+  }
+}  
