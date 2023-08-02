@@ -23,7 +23,7 @@ mix
  * Salesforce
  */
 mix
-  .js('./src/js/salesforce/import-members/index', 'dist/salesforce.import-members.bundle.js')
+  .js('./src/js/salesforce/admin/index.js', 'dist/salesforce.admin.bundle.js')
   .react()
   .options({
     processCssUrls: false
