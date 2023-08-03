@@ -73,11 +73,17 @@
 }
 .faqs-content .faqs-nav ul {
   margin: 0.3rem 0;
+  padding-left: 0;
 }
 .faqs-content .faqs-nav ul li {
   padding: 0.3rem 0;
   line-height: normal;
   margin: 0;
+  list-style: none;
+  padding: 0;
+}
+.faqs-content .faqs-nav ul li ul {
+  padding-left: 1em;
 }
 .faqs-content .faqs-block__item {
   background: white;
@@ -478,6 +484,7 @@ form.tribe-tickets__tickets-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-left: 0 !important;
 }
 .product-card-style .product-item {
   width: calc(50% - 15px);
@@ -485,6 +492,7 @@ form.tribe-tickets__tickets-form {
   box-shadow: 0 7px 16px 0px rgba(1, 1, 1, 0.1);
   position: relative;
   padding-bottom: 80px;
+  list-style: none;
 }
 @media (max-width: 320px) {
   .product-card-style .product-item {
