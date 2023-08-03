@@ -191,6 +191,7 @@ function pp_saleforce_current_user_metadata() {
     'sf_user_id' => get_user_meta($user->ID, '__salesforce_user_id', true),
     'sf_access_token' => get_user_meta($user->ID, '__salesforce_access_token', true),
     'sf_profile_id' => get_user_meta($user->ID, '__salesforce_profile_id', true),
+    'sf_account_id' => get_user_meta($user->ID, '__salesforce_account_id', true),
     'email' => $user->user_email,
   ];
 }

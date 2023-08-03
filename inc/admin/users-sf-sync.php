@@ -91,7 +91,10 @@ function pp_ajax_request_sf_user_data() {
     'Address' => $Address,
     'Phone' => $Phone,
     'CompanyName' => $CompanyName,
+    'AccountId' => $AccountId
   ) = $response ;
+
+  $accountInfo = ppsf_get_account($AccountId);
 
   $wpuid = (int) $_POST['wpuid'];
   
@@ -117,6 +120,8 @@ function pp_ajax_request_sf_user_data() {
     'billing_postcode' => $PostalCode ?? '',
     'billing_state' => $State ?? '',
     '__sf_last_updated_userinfo' => current_time('mysql'), // last updated timestamp
+    '__salesforce_account_id' => $AccountId ?? '',
+    '__salesforce_account_json' => wp_json_encode( $accountInfo )
   ]);
 
   # Update user role
@@ -124,7 +129,10 @@ function pp_ajax_request_sf_user_data() {
 
   wp_send_json( [
     'success' => true, 
-    'response' => $response,
+    'response' => [
+      'User' => $response,
+      'Account' => $accountInfo,
+    ],
     'updated_columns' => pp_user_table_row_update_fragment($wpuid),
   ] );
 } 
