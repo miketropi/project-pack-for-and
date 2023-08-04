@@ -196,3 +196,21 @@ function pp_saleforce_current_user_metadata() {
   ];
 }
 
+function pp_organisation_detals_template() {
+  pp_load_template('organisation-details');
+}
+
+function pp_org_member_journey ($member_journey = []) {
+  ?>
+  <ul style="margin:0;">
+    <?php foreach ($member_journey as $key => $value): ?>
+      <?php if (isset($key)): ?>
+        <li class="<?php if ($value == true) echo 'completed'; ?>">
+          <?php echo str_replace('_', ' ', str_replace('__c', '', $key)); ?>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </ul>
+  <?php
+}
+

@@ -141,7 +141,7 @@ add_action('wp_ajax_pp_ajax_request_sf_user_data', 'pp_ajax_request_sf_user_data
 add_action('wp_ajax_nopriv_pp_ajax_request_sf_user_data', 'pp_ajax_request_sf_user_data');
 
 function pp_user_custom_metadata_box($user) {
-  var_dump($user);
+  pp_organisation_detals_template();
 }
 
 add_action('show_user_profile', 'pp_user_custom_metadata_box');
