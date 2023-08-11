@@ -108,17 +108,17 @@ function pp_ajax_request_sf_user_data() {
 
   # Update user meta
   pp_update_user_meta($wpuid, [
-    'billing_address_1' => $Address ?? '',
+    'billing_address_1' => $accountInfo['BillingStreet'] ?? '',
     // 'billing_address_2' => '',
-    'billing_city' => $City ?? '',
-    'billing_company' => $CompanyName ?? '',
-    'billing_country' => $Country ?? '',
+    'billing_city' => $accountInfo['BillingCity'] ?? '',
+    'billing_company' => $accountInfo['Name'] ?? '',
+    'billing_country' => $accountInfo['BillingCountry'] ?? '',
     'billing_email' => $Email ?? '',
     'billing_first_name' => $FirstName ?? '',
     'billing_last_name' => $LastName ?? '',
     'billing_phone' => $Phone ?? '',
-    'billing_postcode' => $PostalCode ?? '',
-    'billing_state' => $State ?? '',
+    'billing_postcode' => $accountInfo['BillingPostalCode'] ?? '',
+    'billing_state' => $accountInfo['BillingState'] ?? '',
     '__sf_last_updated_userinfo' => current_time('mysql'), // last updated timestamp
     '__salesforce_account_id' => $AccountId ?? '',
     '__salesforce_account_json' => wp_json_encode( $accountInfo )
@@ -141,8 +141,6 @@ add_action('wp_ajax_pp_ajax_request_sf_user_data', 'pp_ajax_request_sf_user_data
 add_action('wp_ajax_nopriv_pp_ajax_request_sf_user_data', 'pp_ajax_request_sf_user_data');
 
 function pp_user_custom_metadata_box($user) {
-  // echo '<pre>';
-  // print_r();
   pp_organisation_details_template($user->ID);
 }
 
