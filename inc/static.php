@@ -7,7 +7,7 @@ function pp_enqueue_scripts() {
 
   if( !wp_script_is( 'wc-cart-fragments', 'enqueued' ) && wp_script_is( 'wc-cart-fragments', 'registered' ) ) {
     // Enqueue the wc-cart-fragments script
-    // wp_enqueue_script( 'wc-cart-fragments' );
+    wp_enqueue_script( 'wc-cart-fragments' );
   }
 
   wp_enqueue_script( 'pp-script', PP_URI . '/dist/project-pack.main.bundle.js', ['jquery'], PP_VER, true );

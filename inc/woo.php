@@ -69,3 +69,16 @@ function pp_add_custom_field_to_order_item_meta( $item_id, $item_values, $item_k
 add_action('woocommerce_add_order_item_meta','pp_add_custom_field_to_order_item_meta', 9, 3 );
 
 // add_filter( 'woocommerce_checkout_coupon_message', 'bt_rename_coupon_message_on_checkout' );
+
+add_action( 'woocommerce_thankyou', 'pp_and_woo_auto_complete_order' );
+function pp_and_woo_auto_complete_order( $order_id ) { 
+  if ( ! $order_id ) {
+    return;
+  }
+
+  $order = wc_get_order( $order_id );
+
+  if( $order->has_status( 'processing' ) && $order->is_paid() ) {
+    $order->update_status( 'completed' );
+  }
+}
