@@ -410,7 +410,7 @@ form.tribe-tickets__tickets-form {
   color: black;
   padding: 0 15px 0 40px;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 1rem;
   height: 44px;
   border: solid 1px black;
 }
@@ -983,8 +983,6 @@ table.shop_table th, table.shop_table td {
   position: relative;
   box-shadow: 0;
   opacity: 0;
-  transform: translateX(100%);
-  -webkit-transform: translateX(100%);
   transition: 0.5s ease;
   -webkit-transition: 0.5s ease;
 }
@@ -1031,8 +1029,6 @@ body.__pp-offcanvas-active .pp-offcanvas {
 }
 body.__pp-offcanvas-active .pp-offcanvas__container {
   opacity: 1;
-  transform: translateX(0);
-  -webkit-transform: translateX(0);
 }
 
 .product-single-content .post-content {

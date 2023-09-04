@@ -59,3 +59,45 @@ function ppsf_get_account($accountID) {
   $response = ppsf_remote_post($url);
   return json_decode( wp_remote_retrieve_body( $response ), true );
 }
+
+/**
+ * Object Contact (label: Contact)
+ * Get Contact information by Contact ID
+ * 
+ * @param string $contactID
+ */
+function ppsf_get_contact($contactID) {
+  list(
+    'endpoint' => $endpoint,
+    'version' => $version,
+  ) = ppsf_api_info();
+
+  $url = $endpoint . '/services/data/'. $version .'/sobjects/Contact/' . $contactID;
+  $response = ppsf_remote_post($url);
+  return json_decode( wp_remote_retrieve_body( $response ), true );
+}
+
+/**
+ * Object Opportunity (label: Opportunities)
+ * Get Opportunity information by Account ID
+ * 
+ * @param string $accountID
+ */
+function ppsf_get_opportunity($accountID) {
+  list(
+    'endpoint' => $endpoint,
+    'version' => $version,
+  ) = ppsf_api_info();
+
+  $sql = "SELECT Id, AccountId, Name, StageName
+          FROM Opportunity 
+          WHERE RecordTypeId='0120I000000TONeQAO' 
+          AND IsClosed=false 
+          AND AccountId='".$accountID."' 
+          ORDER BY CreatedDate DESC";
+
+  $url = $endpoint . '/services/data/'. $version .'/query/?q=' . urlencode($sql);
+  $response = ppsf_remote_post($url);
+
+  return json_decode( wp_remote_retrieve_body( $response ), true );
+}
