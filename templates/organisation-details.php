@@ -1,6 +1,6 @@
 <?php 
 /**
- * Organisation detail box
+ * Organisation details box
  */
 ?>
 
@@ -16,19 +16,27 @@
             <tr>
                 <th>Member Journey</th>
                 <td>
-                    <?php pp_org_member_journey($template_org_data['member_journey']); ?>
+                    <ul>
+                    <?php foreach ($template_org_data['member_journey'] as $key => $value): ?>
+                        <?php if (isset($key)): ?>
+                            <li class="<?php if ($value == true) echo 'completed'; ?>">
+                                <?php echo str_replace('_', ' ', str_replace('__c', '', $key)); ?>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    </ul>
                 </td>
             </tr>
             <tr>
                 <th>Contact details</th>
                 <td>
                     <ul>
-                        <?php foreach ($template_org_data['contact'] as $key => $value): ?>
-                            <li>
-                                <strong><?php echo $key. ': '; ?></strong>
-                                <?php echo $value; ?>
-                            </li>
-                        <?php endforeach; ?> 
+                    <?php foreach ($template_org_data['contact'] as $key => $value): ?>
+                        <li>
+                            <strong><?php echo $key. ': '; ?></strong>
+                            <?php echo $value; ?>
+                        </li>
+                    <?php endforeach; ?> 
                     </ul>
                 </td>
             </tr>
@@ -36,11 +44,11 @@
                 <th>Opportunities</th>
                 <td>
                     <ul>
-                        <?php foreach ($template_org_data['oppoturnity'] as $key => $opportunity): ?>
-                            <li>
-                                <?php echo $opportunity['Name']; ?>
-                            </li>
-                        <?php endforeach; ?>
+                    <?php foreach ($template_org_data['opportunity'] as $key => $opportunity): ?>
+                        <li>
+                            <?php echo $opportunity['Name']; ?>
+                        </li>
+                    <?php endforeach; ?>
                     </ul>
                 </td>
             </tr>

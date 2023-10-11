@@ -17,8 +17,10 @@
    * Inc
    */
   require(PP_DIR . '/inc/admin/woo.php');
+  require(PP_DIR . '/inc/admin/calendly-poduct-type.php');
   require(PP_DIR . '/inc/event-tickets/index.php');
   // require(PP_DIR . '/inc/options.php');
+  require(PP_DIR . '/inc/admin/sf-event-import/index.php');
 
   require(PP_DIR . '/inc/static.php');
   require(PP_DIR . '/inc/helpers.php');
@@ -43,5 +45,6 @@
    * Salesforce
    */
   require(PP_DIR . '/inc/salesforce-api.php');
+  require(PP_DIR . '/inc/sf-oauth-login.php');
   require(PP_DIR . '/inc/admin/users-sf-sync.php');
 } 

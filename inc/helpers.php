@@ -230,25 +230,13 @@ function pp_organisation_details_template($wp_user_id) {
     'org_details' => $sf_org_details_arr,
     'member_journey' => $member_journey_arr,
     'contact' => $sf_contact_arr,
-    'oppoturnity' => $sf_opportunity_data['records'],
-  ] ) );
+    'opportunity' => $sf_opportunity_data['records'],
+  ]));
 
   if (! empty($sf_account_data)) {
     pp_load_template('organisation-details');
   }
 }
 
-function pp_org_member_journey ($member_journey = []) {
-  ?>
-  <ul>
-    <?php foreach ($member_journey as $key => $value): ?>
-      <?php if (isset($key)): ?>
-        <li class="<?php if ($value == true) echo 'completed'; ?>">
-          <?php echo str_replace('_', ' ', str_replace('__c', '', $key)); ?>
-        </li>
-      <?php endif; ?>
-    <?php endforeach; ?>
-  </ul>
-  <?php
-}
+
 

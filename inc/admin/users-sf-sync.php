@@ -91,7 +91,8 @@ function pp_ajax_request_sf_user_data() {
     'Address' => $Address,
     'Phone' => $Phone,
     'CompanyName' => $CompanyName,
-    'AccountId' => $AccountId
+    'AccountId' => $AccountId,
+    'ContactId' => $ContactId,
   ) = $response ;
 
   $accountInfo = ppsf_get_account($AccountId);
@@ -120,6 +121,7 @@ function pp_ajax_request_sf_user_data() {
     'billing_postcode' => $accountInfo['BillingPostalCode'] ?? '',
     'billing_state' => $accountInfo['BillingState'] ?? '',
     '__sf_last_updated_userinfo' => current_time('mysql'), // last updated timestamp
+    'salesforce_contact_id' => $ContactId ?? '',
     '__salesforce_account_id' => $AccountId ?? '',
     '__salesforce_account_json' => wp_json_encode( $accountInfo )
   ]);
