@@ -121,7 +121,7 @@ function ppsf_get_event($eventID) {
     'endpoint' => $endpoint,
     'version' => $version,
   ) = ppsf_api_info();
-
+  
   $url = $endpoint . '/services/data/'. $version .'/sobjects/Event/' . $eventID;
   $response = ppsf_remote_post($url);
   return json_decode( wp_remote_retrieve_body( $response ), true );

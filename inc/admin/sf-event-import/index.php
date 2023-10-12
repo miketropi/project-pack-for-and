@@ -29,8 +29,28 @@ function pp_event_import_page_callback() {
   <?php
 }
 
+function pp_sf_object_item_is_error($data) {
+  return (is_array($data) && $data[0]['errorCode']) ? true : $data;
+}
+
+function pp_get_full_event_import_data() {
+  $junctions = ppsf_get_junctions();
+  if(!isset($junctions['records']) || count($junctions['records']) == 0) {
+    return $junctions;
+  }
+
+  $records =  array_map(function($item) {
+    $item['parent_event_data'] = !empty($item['Parent_Event__c']) ? ppsf_get_event($item['Parent_Event__c']) : '';
+    $item['child_event_data'] = !empty($item['Child_Event__c']) ? ppsf_get_event($item['Child_Event__c']) : '';
+    return $item; 
+  }, $junctions['records']);
+
+  $junctions['records'] = $records;
+  return $junctions;
+}
+
 add_action('wp_ajax_pp_ajax_get_sf_junctions_object', 'pp_ajax_get_sf_junctions_object');
 add_action('wp_ajax_pp_ajax_get_sf_junctions_object', 'pp_ajax_get_sf_junctions_object');
 function pp_ajax_get_sf_junctions_object() {
-  wp_send_json(ppsf_get_junctions());
+  wp_send_json(pp_get_full_event_import_data());
 }
