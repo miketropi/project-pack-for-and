@@ -116,6 +116,17 @@ function ppsf_get_junctions() {
   return json_decode( wp_remote_retrieve_body( $response ), true );
 }
 
+function ppsf_get_junction_item($junction_id) {
+  list(
+    'endpoint' => $endpoint,
+    'version' => $version,
+  ) = ppsf_api_info();
+
+  $url = $endpoint . '/services/data/'. $version .'/sobjects/Junction_Workshop_Event__c/' . $junction_id;
+  $response = ppsf_remote_post($url);
+  return json_decode( wp_remote_retrieve_body( $response ), true );
+}
+
 function ppsf_get_event($eventID) {
   list(
     'endpoint' => $endpoint,

@@ -137,3 +137,8 @@ a.pp-button {
     }
   }
 }
+
+.btn-disable {
+  opacity: .5;
+  pointer-events: none;
+}

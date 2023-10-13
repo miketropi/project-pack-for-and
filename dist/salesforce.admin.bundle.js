@@ -1477,8 +1477,6 @@ function EventListInfo(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
       children: ["Total Seats: ", (event === null || event === void 0 ? void 0 : event.Total_Number_of_Seats__c) || 'null']
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
-      children: ["Seats: ", (event === null || event === void 0 ? void 0 : event.Total_Number_of_Seats__c) || 'null']
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
       children: ["Remaining Seats: ", (event === null || event === void 0 ? void 0 : event.Remaining_Seats__c) || 'null']
     })]
   });
@@ -1604,6 +1602,10 @@ __webpack_require__.r(__webpack_exports__);
 function JunctionTable() {
   var _useSFEventContext = (0,_libs_context__WEBPACK_IMPORTED_MODULE_0__.useSFEventContext)(),
     Junctions = _useSFEventContext.Junctions;
+  var isImportAvailable = function isImportAvailable(juncData) {
+    var _juncData$parent_even, _juncData$child_event;
+    return juncData !== null && juncData !== void 0 && (_juncData$parent_even = juncData.parent_event_data) !== null && _juncData$parent_even !== void 0 && _juncData$parent_even.Id && juncData !== null && juncData !== void 0 && (_juncData$child_event = juncData.child_event_data) !== null && _juncData$child_event !== void 0 && _juncData$child_event.Id ? true : false;
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "junction-table-container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
@@ -1665,7 +1667,7 @@ function JunctionTable() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-                className: "pp-button button-import",
+                className: ['pp-button button-import', isImportAvailable(item) ? '' : 'btn-disable'].join(' '),
                 children: ["Import", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("svg", {
                   fill: "#FFFFFF",
                   viewBox: "0 0 1920 1920",

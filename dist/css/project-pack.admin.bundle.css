@@ -123,6 +123,11 @@ a.pp-button svg {
   border-bottom: solid 1px black;
 }
 
+.btn-disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .pp-product-variable-custom-field {
   width: 100%;
   border: solid #eee;
